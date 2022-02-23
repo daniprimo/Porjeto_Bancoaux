@@ -17,8 +17,9 @@ public class ContaPoupanca extends Conta {
     // Metodos e funcionalidades da "ContaPoupança"
     @Override
     public void infosDasContas (){
-        System.out.println("*** Extrato Conta Poupança ***");
+
         super.infosDasContas();
+
     }
 
 

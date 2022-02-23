@@ -12,6 +12,7 @@ public class Main {
 
       Scanner scan = new Scanner(System.in);
 
+
       Cliente daniel = new Cliente();
       daniel.setNomeCompleto("Daniel Lopes Sousa Moreira");
       daniel.setNome("Daniel");
@@ -20,10 +21,16 @@ public class Main {
       daniel.setEndereço("Rua Ipixuna, 141");
       daniel.setNumeroTelefone("(11) 98585-0569");
       daniel.setSalarioMensal(37000);
+      //Criando contas
       Conta ccDaniel = new ContaCorrente(daniel);
       Conta cpDaniel = new ContaCorrente(daniel);
+      //realizando tranzações
       ccDaniel.depositar(30000);
-      cpDaniel.depositar(15000);
+      ccDaniel.transferir(20000,cpDaniel);
+      //visualizando informações do cliente
+      daniel.infoDosCLientes(ccDaniel, cpDaniel);
+      daniel.investimento(ccDaniel,cpDaniel);
+
 
 
       Cliente pedro = new Cliente();
@@ -36,57 +43,13 @@ public class Main {
       pedro.setSalarioMensal(20000);
       Conta ccPedro = new ContaCorrente(pedro);
       Conta cpPedro = new ContaCorrente(pedro);
-      ccPedro.depositar(30000);
-      cpPedro.depositar(12444);
-      ccPedro.transferir(1000, cpDaniel);
 
+      ccPedro.depositar(18000);
+      cpPedro.depositar(2000);
+      ccPedro.transferir(8000, cpDaniel);
 
-      Cliente novo = new Cliente();
-      Conta corrente = new ContaCorrente(novo);
-      Conta poupanca = new ContaPoupanca(novo);
-/*
-    do {
-
-      int opcao;
-
-      System.out.println("*** Impact Bank ***");
-      System.out.println("[1] - Cadastrar cliente.");
-      System.out.println("[2] - Depositar Conta Corrente.");
-      System.out.println("[3] - Depositar Conta Poupança.");
-      System.out.println("[4] - Contas Cadastradas");
-      System.out.println("[5] - Sair");
-      System.out.printf("Digite sua opção: ");
-      opcao = scan.nextInt();
-
-
-
-      switch (opcao) {
-        case 1:
-          novo.cadastrarClientes();
-          break;
-        case 2:
-          System.out.printf("Digite o valor que deseja depositar: R$:");
-          double deposito = scan.nextDouble();
-          corrente.depositar(deposito);
-          break;
-        case 3:
-          System.out.printf("Digite o valor que deseja Transferir: R$:");
-          double transferir = scan.nextDouble();
-          corrente.transferir(transferir,ccDaniel);
-          break;
-        case 4:
-          System.out.println("*** Extrato Conta Corrente ***");
-          corrente.infosDasContas();
-          System.out.println("Saldos Total: "+ (corrente.getSaldo()+ poupanca.getSaldo() ));
-          System.out.println("*** Extrato Conta Poupança ***");
-          poupanca.infosDasContas();
-          break;
-        case 5:
-
-          break;
-      }
-    }while (true);
-*/
+      pedro.infoDosCLientes(ccPedro, cpPedro);
+      pedro.investimento(ccPedro, cpPedro);
 
 
 

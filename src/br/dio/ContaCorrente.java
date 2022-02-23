@@ -8,8 +8,9 @@ public class ContaCorrente extends Conta {
 
     @Override
     public void infosDasContas () {
-        System.out.println("*** Extrato Conta Corrente ***");
+
         super.infosDasContas();
+
     }
 
 

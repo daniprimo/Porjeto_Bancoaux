@@ -12,6 +12,7 @@ public abstract class Conta implements InterfaceConta  {
 
 
 
+
     public Conta  (Cliente cliente) {
         this.agencia = SEQUENCIALAGENCIA;
         this.numeroConta = SEQUENCIAL++;
@@ -56,12 +57,14 @@ public abstract class Conta implements InterfaceConta  {
 
     public void infosDasContas() {
 
-        System.out.println(String.format("Cliente: %s", this.cliente.getNome()));
+        /*System.out.println(String.format("Cliente: %s", this.cliente.getNomeCompleto()));*/
         System.out.println(String.format("Agencia: %d", this.agencia));
         System.out.println(String.format("Conta: %d", this.numeroConta));
         System.out.println(String.format("Saldo: %.2f", this.saldo));
 
+
     }
+
 
 
 

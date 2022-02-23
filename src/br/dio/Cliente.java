@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Cliente {
     Scanner scan = new Scanner(System.in);
 
-    Conta aux;
+    ContaCorrente aux;
+    ContaPoupanca auxp;
 
 
     private String nome;
@@ -79,7 +80,8 @@ public class Cliente {
 
     //metodos
 
-    public void infoDosCLientes() {
+    public void infoDosCLientes(Conta cliente, Conta clientePoupanca) {
+
 
         System.out.println(String.format("Cliente: "+ this.getNomeCompleto()));
         System.out.println(String.format("CPF: %s", this.getCpf()));
@@ -87,9 +89,40 @@ public class Cliente {
         System.out.println(String.format("Endereço: %s", this.getEndereço()));
         System.out.println(String.format("Telefone: %s", this.getNumeroTelefone()));
         System.out.println(String.format("Salario: R$%.2f%n", this.getSalarioMensal()));
+        System.out.println("*** Extrato Conta Corrente ***");
+        cliente.infosDasContas();
+        System.out.println();
+        System.out.println("*** Extrato Conta Poupança ***");
+        clientePoupanca.infosDasContas();
+        double saldoTotal = cliente.getSaldo() + clientePoupanca.getSaldo();
+        System.out.println(String.format("Saldo Total: R$%.2f%n", saldoTotal));
+
 
 
     }
+
+    public void investimento (Conta cliente, Conta clientePoupanca){
+        double corrente = cliente.getSaldo();
+        double poupanca = clientePoupanca.getSaldo();
+        double total = corrente+poupanca;
+
+        if (corrente > 1000 && poupanca > 600 && corrente < 1500){
+            System.out.println("Perfil Investidor Mirim");
+            System.out.println("Aprovado para investimento em: CDB / CDI / Seguro nivel dourado");
+        }else if (corrente > 1000 && poupanca < 3000){
+            System.out.println("Perfil Investidor Moderado");
+            System.out.println("Aprovado para investimento em: CDB / CDI / Fundos Imobiliario / Seguror nivel prata");
+        }else if (poupanca >= 3000 && total > 10000){
+            System.out.println("Perfil Investidor Arrojado");
+            System.out.println("Aprovado para investimento em: CDB / CDI / Fundos Imobiliario / Tryder / Seguro nivel Ouro");
+        }
+        System.out.println();
+
+    }
+
+
+
+
 
     public void cadastrarClientes (){
 
@@ -105,6 +138,8 @@ public class Cliente {
         setNumeroTelefone(numeroTelefone);
         System.out.printf ("Salario: R$"); salarioMensal = scan.nextDouble();
         setSalarioMensal(salarioMensal);
+
+
 
 
     }

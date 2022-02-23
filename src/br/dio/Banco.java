@@ -1,8 +1,10 @@
 package br.dio;
 
 import java.util.List;
+import java.util.Scanner;
 
-public class Banco {
+public  class Banco {
+    Scanner scan = new Scanner(System.in);
 
     public String nome;
     private List<Cliente> clientes;
@@ -33,6 +35,10 @@ public class Banco {
     public String getNome() {
         return nome;
     }
+
+
+
+
 
 
 }
