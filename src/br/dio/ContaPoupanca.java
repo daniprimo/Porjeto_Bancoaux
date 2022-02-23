@@ -1,6 +1,6 @@
 package br.dio;
 
-public abstract class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta {
     /*
     * Classe Filha da "Classe Conta" para gerenciar funções dentro das  poupanças
     *
